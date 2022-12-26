@@ -18,5 +18,8 @@ kubectl rollout status deployment deployment-test
 # Para ver el historial de un deployment especifico
 kubectl rollout history deployment deplyment-test
 
-# Para revisar una versión(revision) especifica del historico
+# Para revisar una versión(revisión) especifica del historico
 kubectl rollout history deployment deplyment-test --revision=2
+
+# Realizar un rollback a una versión (revisión) especifica
+kubectl rollout undo deployment deployment-test --to-revision=3

@@ -15,4 +15,8 @@ kubectl get deployment --show-labels
 # Nos cuenta que paso con el deployment ('deployment-test' es el nombre de mi deployment de prueba)
 kubectl rollout status deployment deployment-test
 
+# Para ver el historial de un deployment especifico
+kubectl rollout history deployment deplyment-test
 
+# Para revisar una versión(revision) especifica del historico
+kubectl rollout history deployment deplyment-test --revision=2

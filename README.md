@@ -1,4 +1,9 @@
 "# kubernetes" 
+# PODS
+
+# Para ver descripción detallada de los pods
+kubectl get pods -l app=ront -o wide
+
 
 
 # DEPLOYMENTS
@@ -23,3 +28,15 @@ kubectl rollout history deployment deplyment-test --revision=2
 
 # Realizar un rollback a una versión (revisión) especifica
 kubectl rollout undo deployment deployment-test --to-revision=3
+
+
+# SERVICE
+
+# Aplicamos el maniiesto del service
+kubectl apply - svc.yaml
+
+# Listar los servicios
+kubectl get svc
+
+# Describir la coniguración de un servicio
+kubectl describe svc my-service

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-api-autorizacion
+  labels:
+    app: deploy-api-autorizacion
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-autorizacion
+  template:
+    metadata:
+      labels:
+        app: api-autorizacion
+    spec:
+      containers:
+      - name: api-autorizacion
+        image: api-autorizacion:1.0.0
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-api-autorizacion
+  labels:
+    app: svc-api-autorizacion
+spec:
+  type: ClusterIP
+  selector:
+    app: api-autorizacion
+  ports:
+  - port: 80
+    targetPort: 8080
